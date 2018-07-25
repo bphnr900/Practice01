@@ -1,0 +1,29 @@
+﻿<Window x:Class="Practice01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practice01"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="450">
+    <Window.DataContext>
+        <local:Sample x:Name="sample"/>
+    </Window.DataContext>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Name="button1" Content="Delete" Command="{Binding DeleteCommand}"/>
+            <Button Grid.Row="0" Grid.Column="1" Name="button" Content="Insert" Command="{Binding command}"/>
+            <Button Grid.Row="0" Grid.Column="2" Name="button2" Content="Write" />
+            <DataGrid Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding Path=tasks}" CanUserAddRows="False" Margin="10,0"/>
+        </Grid>
+    </ScrollViewer>
+</Window>
